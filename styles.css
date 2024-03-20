@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #84c3fa;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    
+}
+img{width: 70%; height: 70%;}
+form{ width:40%; height:40%;}
+
+h1 {
+    text-align: center;
+}
+
+#contact-form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    background-color: #fff;
+}
+
+s
+
+#contactForm input,
+#contactForm textarea {
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#contactForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#form-messages {
+    margin-top: 20px;
+    text-align:center;
+}
+#chooseService {
+    width: calc(100% - 12px); 
+}
