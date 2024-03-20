@@ -7,10 +7,22 @@ body {
     margin: 0 auto;
     padding: 20px;
     display: flex;
-    
+    justify-content: center;
+    align-items: center; 
 }
-img{width: 70%; height: 70%;}
-form{ width:40%; height:40%;}
+
+img {
+    width: 150%; 
+    max-width: 500px; 
+    height: auto;
+    margin-left: auto; 
+}
+
+
+form {
+    width: 40%;
+    height: 40%;
+}
 
 h1 {
     text-align: center;
@@ -21,18 +33,30 @@ h1 {
     flex-flow: column wrap;
     align-items: center;
     text-align: center;
-    width: 60%;
+    width: 40%; 
+    margin-right: auto; 
     background-color: #fff;
 }
+#contactForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px; 
+}
 
-s
+
 
 #contactForm input,
-#contactForm textarea {
+#contactForm textarea,
+#contactForm select {
     width: 80%;
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
+    display: block; 
 }
 
 #contactForm button {
@@ -46,8 +70,5 @@ s
 
 #form-messages {
     margin-top: 20px;
-    text-align:center;
-}
-#chooseService {
-    width: calc(100% - 12px); 
+    text-align: center;
 }
