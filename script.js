@@ -1,22 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault();
+document.getElementById("sendButton").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    
+    var formData = new FormData(document.getElementById("contactForm"));
 
-        var form = event.target;
-        var formData = new FormData(form);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open(form.method, form.action);
-        xhr.setRequestHeader("Accept", "application/json");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState !== XMLHttpRequest.DONE) return;
-            if (xhr.status === 200) {
-                form.reset();
-                document.getElementById("form-messages").innerHTML = xhr.responseText;
-            } else {
-                document.getElementById("form-messages").innerHTML = xhr.responseText;
+    fetch("process_form.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById("form-messages").innerText = "Messaggio inviato";
+            document.getElementById("contactForm").reset(); 
+            document.getElementById("contactForm").style.display = "none"; 
+        } else {
+            for (const [key, value] of Object.entries(data.errors)) {
+                document.getElementById(key + "_error").innerText = value;
             }
-        };
-        xhr.send(formData);
-});
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
 });
